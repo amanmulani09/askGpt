@@ -1,8 +1,8 @@
 {
-  "name": "askgpt-server",
-  "private": true,
+  "name": "server",
   "version": "0.0.0",
   "type": "module",
+  "description": "",
   "scripts": {
     "server": "nodemon server"
   },

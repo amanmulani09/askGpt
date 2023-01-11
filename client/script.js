@@ -3,8 +3,9 @@ import user from './assets/user.svg';
 
 const form = document.querySelector('form');
 const chatContainer = document.querySelector('#chat_container');
-
 let loadInterval;
+const OPENAI_API_KEY = "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"
+
 
 
 function loader(element){
@@ -79,11 +80,13 @@ const handleSubmit = async (e)=>{
   loader(messageDiv);
 
   //fetch data from the server 
-
-  const response = await fetch('http://localhost:5000',{
+console.log(uniqueId)
+console.log(data.get('prompt'));
+  const response = await fetch('https://askgpt.onrender.com',{
     method: 'POST',
   headers:{
     'Content-Type' : 'application/json',
+  'Authorization': `Bearer ${OPENAI_API_KEY}`
   },
   body: JSON.stringify({
     prompt : data.get('prompt')
@@ -96,6 +99,7 @@ const handleSubmit = async (e)=>{
   if(response.ok){
     const data = await response.json();
     const parsedData = data.bot.trim();
+    console.log(parsedData)
     typeText(messageDiv,parsedData)
   } else{
     const err = await response.text();
@@ -106,7 +110,6 @@ const handleSubmit = async (e)=>{
 form.addEventListener('submit',handleSubmit);
 form.addEventListener('keyup',(e)=>{
 
-  console.log(e.keyCode)
   if(e.keyCode === 13){
     handleSubmit(e)
   }

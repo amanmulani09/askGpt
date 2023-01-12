@@ -95,7 +95,7 @@ console.log(data.get('prompt'));
 
   clearInterval(loadInterval);
   messageDiv.innerHTML = '';
-
+console.log(response)
   if(response.ok){
     const data = await response.json();
     const parsedData = data.bot.trim();

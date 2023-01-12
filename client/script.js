@@ -84,10 +84,6 @@ console.log(uniqueId)
 console.log(data.get('prompt'));
   const response = await fetch('https://askgpt.onrender.com',{
     method: 'POST',
-  headers:{
-    'Content-Type' : 'application/json',
-  'Authorization': `Bearer ${OPENAI_API_KEY}`
-  },
   body: JSON.stringify({
     prompt : data.get('prompt')
   })

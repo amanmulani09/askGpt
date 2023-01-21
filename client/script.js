@@ -82,8 +82,11 @@ const handleSubmit = async (e)=>{
   //fetch data from the server 
 console.log(uniqueId)
 console.log(data.get('prompt'));
-  const response = await fetch('https://askgpt.onrender.com',{
+  const response = await fetch('http://localhost:5000',{
     method: 'POST',
+  headers:{
+    'Content-Type' : 'application/json',
+  },
   body: JSON.stringify({
     prompt : data.get('prompt')
   })

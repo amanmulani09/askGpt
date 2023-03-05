@@ -1,2 +1,2 @@
 # askGpt
-askGpt is a large language model chatbot developed using OpenAI based on GPT-3.5.
+askGpt is a large language model chatbot developed using OpenAI API based on GPT-3.5.
